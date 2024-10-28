@@ -10,14 +10,21 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-2"
+  region = "us-east-2"
 }
+
+  backend "s3" {
+    bucket = "orangetexinfraterraformbucket"
+    key    = "path/to/my/key"
+    region = "us-east-2"
+  }
+
 
 resource "aws_instance" "Gopiapp_server" {
   ami           = "ami-050cd642fd83388e4"
   instance_type = "t2.micro"
-  
-  
+
+
   tags = {
     Name = "byGopiInstance"
   }
