@@ -8,7 +8,7 @@ on:
         required: true
         options:
         - AWS
-        - Azure
+        - AZURE
         
 jobs:
   cont-integration:
@@ -20,11 +20,9 @@ jobs:
       - name: Run Environment
         run: | 
           if("${{ github.event.inputs.environment }}"-eq 'AWS')
-            {
-            echo "aws environment is chosen" }
+            {write-host "aws environment is chosen" }
           if("${{ github.event.inputs.environment }}"-eq 'AZURE')
-            {
-                        echo "azure environment is chosen" }
-            }
+            {write-host "azure environment is chosen" }
+            
           
 
