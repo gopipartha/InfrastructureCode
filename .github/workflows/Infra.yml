@@ -18,13 +18,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Environment
-        run: | 
-           if ("${{ github.event.inputs.environment }}" -eq "AWS") {
-            write-host "AWS was selected"
-                        } 
-           if ("${{ github.event.inputs.environment }}" -eq "AZURE") {
-            write-host "AZURE was selected"
-                        } 
+        run: |
+         echo "environment is ${{ github.event.inputs.environment }}
+        #if: 
+        #    if ("${{ github.event.inputs.environment }}" -eq "AWS") {
+         #        write-host "AWS was selected" } 
+         #    if ("${{ github.event.inputs.environment }}" -eq "AZURE") {
+           #      write-host "AZURE was selected" } 
             
           
 
