@@ -21,6 +21,6 @@ jobs:
          run:|
           if("${{ github.event.inputs.environment }}" == 'AWS') 
           echo "environment is AWS" 
-         run:|
-          if("${{ github.event.inputs.environment}}" == 'AZURE') 
-          echo "environment is Azure"
+        # run:|
+         # if("${{ github.event.inputs.environment}}" == 'AZURE') 
+       #   echo "environment is Azure"
