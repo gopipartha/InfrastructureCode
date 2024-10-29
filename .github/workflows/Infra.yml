@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - name: Run Environment
          if("${{ github.event.inputs.environment }}" == 'AWS') 
-         echo "environment is AWS" 
+          run echo "environment is AWS" 
          if("${{ github.event.inputs.environment}}" == 'AZURE') 
-         echo "environment is Azure "
+          run echo "environment is Azure "
 
