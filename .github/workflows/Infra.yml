@@ -14,7 +14,7 @@ jobs:
   con-integration:
     runs-on: ubuntu-latest
     steps: |
-      run: bash
+      - uses: actions/checkout@v4
        if: github.event.inputs.environment == 'dev'
        run: echo "dev environment"
        #if: github.event.inputs.environment == 'prod'
