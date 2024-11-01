@@ -20,8 +20,8 @@ jobs:
          ENVIRONMENT: ${{ inputs.environment }}
         run: |
          if [[ $ENVIRONMENT == 'dev' ]]; then
-         run: echo "dev environment"
+          echo "dev environment"
          elif [[ $ENVIRONMENT == 'prod' ]]; then
-         run: echo  "prod environment"
+          echo  "prod environment"
          fi
          
