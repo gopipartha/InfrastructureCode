@@ -22,7 +22,7 @@ jobs:
          if [[ $ENVIRONMENT == 'dev' ]]; then
           run: echo "dev environment"
           shell: bash
-         elif [[ $ENVIRONMENT == 'prod' ]]; then
+         if [[ $ENVIRONMENT == 'prod' ]]; then
           run: echo  "prod environment"
           shell: bash
    
