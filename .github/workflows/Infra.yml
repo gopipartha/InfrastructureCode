@@ -17,12 +17,12 @@ jobs:
      - uses: actions/checkout@v4
      - name: run aws dev
        run: |
-        if: github.event.inputs.environment == 'dev' then
+        if: github.event.inputs.environment == 'dev' 
          run: echo "dev environment"
          shell: bash
-        else
+        if: github.event.inputs.environment == 'prod'
          run: echo  "prod environment"
          shell: bash
          
-       #if: github.event.inputs.environment == 'prod'
+   
          
