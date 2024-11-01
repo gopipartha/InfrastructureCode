@@ -36,34 +36,10 @@ jobs:
           terraform init
           echo "** Running Terraform Validate**"
           terraform validate
-      - name: Terraform Plan
-        uses: hashicorp/tfc-workflows-github/actions/create-run@v1.3.0
-        id: run
-        with:
-          workspace: ${{ env.tfc_workspace }}
-          plan_only: true
-          message: Plan Run from GitHub Actions
-          token: ${{ secrets.TERRAFORM_TOKEN }}
-      - name: Terraform Plan Output
-        uses: hashicorp/tfc-workflows-github/actions/plan-output@v1.3.0
-        id: plan-output
-        with:
-          token: ${{ secrets.TERRAFORM_TOKEN }}
-          plan: ${{ steps.run.outputs.plan_id }}
-      - name: Reference Plan Output
-        run: |
-          echo "Plan status: ${{ steps.plan-output.outputs.plan_status }}"
-          echo "Resources to Add: ${{ steps.plan-output.outputs.add }}"
-          echo "Resources to Change: ${{ steps.plan-output.outputs.change }}"
-          echo "Resources to Destroy: ${{ steps.plan-output.outputs.destroy }}"
-  apply_terraform_plan:
-    needs: aws_tfc_job
-    if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Terraform Apply
-        run: echo "** Running Terraform Apply**"; terraform apply -auto-approve
-        working-directory: ${{ env.tfcode_path }}
+          echo "** Running Terraform Plan**"
+          terraform plan
+          echo "** Running Terraform Apply**"
+          terraform apply -auto-approve
      # - name: Terraform Destroy
      #   run: echo "** Running Terraform Destroy**"; terraform destroy -auto-approve
      #  working-directory: ${{ env.tfcode_path }}
