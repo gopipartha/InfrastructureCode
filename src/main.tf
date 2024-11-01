@@ -1,18 +1,9 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
-  }
-
   backend "s3" {
     bucket = "orangetexinfraterraformbucket"
     key    = "arn:aws:kms:us-east-1:970547365374:key/949d78bc-b5d2-40bf-8b27-b70068c6a64a"
     region = "us-east-1"
   }
-
-  required_version = ">= 1.2.0"
 }
 
 provider "aws" {
