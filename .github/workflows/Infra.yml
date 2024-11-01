@@ -16,5 +16,5 @@ jobs:
   steps: |
     if: github.event.inputs.environment == 'dev'
      run: echo "dev environment"
-    if: github.event.inputs.environment == 'prod'
-     run: echo "prod environment"
+    #if: github.event.inputs.environment == 'prod'
+    # run: echo "prod environment"
