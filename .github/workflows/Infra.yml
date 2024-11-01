@@ -17,14 +17,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: run aws dev
         env:
-          ENVIRONMENT: ${{ inputs.environment }}
+         ENVIRONMENT: ${{ inputs.environment }}
         run: |
-          if [[ $ENVIRONMENT == 'dev' ]]; then
-            run: echo "dev environment"
-            shell: bash
-          elif [[ $ENVIRONMENT == 'prod' ]]; then
-           ENVIRONMENT_VALUE='098765432'
-           run: echo  "prod environment"
-           shell: bash
+         if [[ $ENVIRONMENT == 'dev' ]]; then
+          run: echo "dev environment"
+          shell: bash
+         elif [[ $ENVIRONMENT == 'prod' ]]; then
+          ENVIRONMENT_VALUE='098765432'
+          run: echo  "prod environment"
+          shell: bash
    
          
