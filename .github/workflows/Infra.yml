@@ -1,27 +1,20 @@
+---
 name: awscreate
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: Select the environment
-        required: true
-        options:
-        - AWS
-        - AZURE
-        
+  workflow_dispatch: 
+  inputs:
+   environment:
+      type: choice
+      description: Select the environment
+      required: true
+      options:
+        - dev
+        - prod
 jobs:
-  cont-integration:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Run Environment
-        run: |
-          if("${{inputs.environment }}" == 'AZURE') 
-          name: AZURE
-           echo "environment is AZURE" 
-        # run:|
-         # if("${{ github.event.inputs.environment}}" == 'AZURE') 
-       #   echo "environment is Azure"
+ con-integration:
+  runs-on: ubuntu-latest
+  steps: |
+    if: github.event.inputs.environment == 'dev'
+     run: echo "dev environment"
+    if: github.event.inputs.environment == 'prod'
+     run: echo "prod environment"
