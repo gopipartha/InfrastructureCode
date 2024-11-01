@@ -14,15 +14,14 @@ jobs:
   con-integration:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v4
-     - name: run aws dev
-       run: |
-        if({{"$github.event.inputs.environment" == 'dev'}}) 
-         run: echo "dev environment"
-         shell: bash
-        if({{"$github.event.inputs.environment" == 'prod'}})
-         run: echo  "prod environment"
-         shell: bash
-         
+      - uses: actions/checkout@v4
+      - name: run aws dev
+        run: |
+          if: ${{contains(inputs.environment, 'dev') }}
+            run: echo "dev environment"
+            shell: bash
+          if: ${{contains(inputs.environment, 'prod') }}
+           run: echo  "prod environment"
+           shell: bash
    
          
