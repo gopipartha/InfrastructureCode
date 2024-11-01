@@ -2,8 +2,8 @@
 name: awscreate
 on:
   workflow_dispatch: 
-  inputs:
-   environment:
+   inputs:
+    environment:
       type: choice
       description: Select the environment
       required: true
