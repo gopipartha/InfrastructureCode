@@ -32,8 +32,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
          aws-region: eu-west-2
-         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESSKEY_ID }}
-         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+         aws-access-key-id: ${{ secrets.AWS_ACCESSKEY_ID }}
+         aws-secret-key: ${{ secrets.AWS_SECRET_KEY }}
       - name: Terraform init and validate
         run: |
           echo "** Running Terraform Init**"
