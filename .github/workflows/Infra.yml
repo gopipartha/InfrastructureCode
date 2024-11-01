@@ -1,20 +1,21 @@
 ---
 name: awscreate
 on:
-  workflow_dispatch: 
-   inputs:
-    environment:
-      type: choice
-      description: Select the environment
-      required: true
-      options:
-        - dev
-        - prod
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Select the environment
+        required: true
+        options:
+          - dev
+          - prod
 jobs:
- con-integration:
-  runs-on: ubuntu-latest
-  steps: |
-    if: github.event.inputs.environment == 'dev'
-     run: echo "dev environment"
-    #if: github.event.inputs.environment == 'prod'
-    # run: echo "prod environment"
+  con-integration:
+    runs-on: ubuntu-latest
+    steps: |
+      run: bash
+       if: github.event.inputs.environment == 'dev'
+       run: echo "dev environment"
+       #if: github.event.inputs.environment == 'prod'
+       # run: echo  "prod environment"
