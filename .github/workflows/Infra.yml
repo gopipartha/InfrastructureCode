@@ -13,11 +13,16 @@ on:
 jobs:
   con-integration:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
      - uses: actions/checkout@v4
      - name: run aws dev
-       if: github.event.inputs.environment == 'dev'
-       run: echo "dev environment"
-       shell: bash
+       run: |
+        if: github.event.inputs.environment == 'dev' then
+         run: echo "dev environment"
+         shell: bash
+        else
+         run: echo  "prod environment"
+         shell: bash
+         
        #if: github.event.inputs.environment == 'prod'
-       # run: echo  "prod environment"
+         
