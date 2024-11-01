@@ -18,7 +18,7 @@ env:
  tfcode_path: ./src
  tfc_organisation: orangetex # Replace it with your TFC Org
  tfc_hostname: app.terraform.io
- tfc_workspace: terraform # Replace it with your TFC Workspace
+ tfc_workspace: ./terraform # Replace it with your TFC Workspace
  AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESSKEY_ID }}
  AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_KEY }}
  
