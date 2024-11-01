@@ -23,7 +23,6 @@ jobs:
           run: echo "dev environment"
           shell: bash
          elif [[ $ENVIRONMENT == 'prod' ]]; then
-          ENVIRONMENT_VALUE='098765432'
           run: echo  "prod environment"
           shell: bash
    
