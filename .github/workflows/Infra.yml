@@ -23,4 +23,5 @@ jobs:
          run: echo "dev environment"
          elif [[ $ENVIRONMENT == 'prod' ]]; then
          run: echo  "prod environment"
+         fi
          
