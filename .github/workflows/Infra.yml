@@ -19,16 +19,17 @@ jobs:
     steps:
       - name: Checkout tf code in runner environment
         uses: actions/checkout@v3.5.2
-      - name: Setup Terraform CLI
-        uses: hashicorp/setup-terraform@v2.0.2
-        with:
-         cli_config_credentials_token: ${{ secrets.TERRAFORM_TOKEN }}
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
          aws-access-key-id: ${{ secrets.AWS_ACCESSKEY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
          aws-region: 'eu-west-2'
+      - name: terraform initialize
+        uses: hashicorp/setup-terraform@v2.0.2
+        with:
+         terraform_version: 1.4.6
+         #cli_config_credentials_token: ${{ secrets.TERRAFORM_TOKEN }}
       - name: Terraform init and validate
         run: |
           echo "** Running Terraform Init**"
