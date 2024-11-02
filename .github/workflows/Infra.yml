@@ -8,8 +8,6 @@ on:
     secrets:
       TERRAFORM_TOKEN:
         required: true
-      AWS_ACCESSKEY_ID: { required: true }
-      AWS_SECRET_KEY: { required: true }
   push:
     branches:
       - main
@@ -25,7 +23,7 @@ jobs:
       - name: Checkout tf code in runner environment
         uses: actions/checkout@v3
       - name: Configure aws credentials
-        uses: ./github/workflows/run_tests.yml
+        uses: ./.github/workflows/run_tests.yml
         with:
          aws-access-key-id: ${{ secrets.AWS_ACCESSKEY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
