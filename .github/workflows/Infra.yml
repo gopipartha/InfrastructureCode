@@ -1,5 +1,8 @@
 ---
 name: AWS Infra Creation Using in HCP Terraform
+permissions:
+  id-token: write
+  contents: read
 on:
   workflow_call:
     secrets:
