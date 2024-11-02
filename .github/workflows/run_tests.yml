@@ -8,7 +8,7 @@ on:
       AWS_SECRET_ACCESS_KEY: { required: true }
 
 jobs:
-  tests:
+  aws_tfc_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
