@@ -5,6 +5,8 @@ on:
     secrets:
       TERRAFORM_TOKEN:
         required: true
+      AWS_ACCESSKEY_ID: { required: true }
+      AWS_SECRET_KEY: { required: true }
   push:
     branches:
       - main
