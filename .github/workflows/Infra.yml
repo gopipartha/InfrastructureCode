@@ -5,10 +5,11 @@ permissions:
   contents: read
 on:
   workflow_call:
-    secrets:
+   secrets:
       TERRAFORM_TOKEN:
         required: true
-    
+      aws-access-key-id: ${{ secrets.AWS_ACCESSKEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
   push:
     branches:
       - main
@@ -18,12 +19,6 @@ on:
   workflow_dispatch: null
 jobs:
   aws_tfc_job:
-    uses: ./.github/workflows/run_tests.yml
-    secrets:
-     aws-access-key-id: ${{ secrets.AWS_ACCESSKEY_ID }}
-     aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-  build-and-push:
-   name: Create AWS Infra Using TFC
    runs-on: ubuntu-latest
    steps:
       - name: Checkout tf code in runner environment
